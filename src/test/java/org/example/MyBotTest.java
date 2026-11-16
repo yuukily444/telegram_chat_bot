@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 /**
  * тестирует логику бота
  */
-class MyBotLogicTest {
+class MyBotTest {
 
     /**
      * хранит объект логики бота, который проверяется в тестах
