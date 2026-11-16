@@ -28,27 +28,21 @@ public class MyBot implements LongPollingSingleThreadUpdateConsumer {
 
     @Override
     public void consume(Update update) {
-        if (update.hasMessage()
-                && update.getMessage().hasText()) {
+        if (update.hasMessage() && update.getMessage().hasText()) {
 
-            String chatId =
-                    update.getMessage().getChatId().toString();
+            String chatId = update.getMessage().getChatId().toString();
 
-            String msg =
-                    update.getMessage().getText();
+            String msg = update.getMessage().getText();
 
-            String answer =
-                    logic.process(msg);
+            String answer = logic.process(msg);
 
-            SendMessage message =
-                    new SendMessage(chatId, answer);
+            SendMessage message = new SendMessage(chatId, answer);
 
             try {
                 client.execute(message);
             } catch (TelegramApiException exception) {
                 System.err.println(
-                        "Не удалось отправить сообщение: "
-                                + exception.getMessage()
+                        "Не удалось отправить сообщение: " + exception.getMessage()
                 );
             }
         }
