@@ -27,9 +27,7 @@ public class Main {
             Thread.currentThread().join();
 
         } catch (Exception exception) {
-            System.err.println(
-                    "Ошибка при запуске бота: " + exception.getMessage()
-            );
+            exception.printStackTrace();
         }
     }
 }

@@ -41,9 +41,7 @@ public class MyBot implements LongPollingSingleThreadUpdateConsumer {
             try {
                 client.execute(message);
             } catch (TelegramApiException exception) {
-                System.err.println(
-                        "Не удалось отправить сообщение: " + exception.getMessage()
-                );
+                exception.printStackTrace();
             }
         }
     }
